@@ -1,0 +1,5 @@
+huey210/*
+huey.db*
+__pycache__/*
+huey.log*
+*.toml

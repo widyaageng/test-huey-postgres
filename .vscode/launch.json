@@ -1,0 +1,69 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "api",
+            "type": "python",
+            "request": "launch",
+            "program": "index.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "consoleTitle": "Api"
+        },
+        {
+            "name": "burst some tasks",
+            "type": "python",
+            "request": "launch",
+            "program": "overload_huey.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-i",
+                "1000"
+            ],
+            "justMyCode": false,
+            "consoleTitle": "burst tasks"
+        },
+        {
+            "name": "huey",
+            "type": "python",
+            "request": "launch",
+            "module": "huey_consumer",
+            "env": {
+                "PYTHONPATH": "/home/widya/.pyenv/versions/3.9.13/envs/huey/lib/python3.9/site-packages/huey/bin",
+            },
+            "args": [
+                "hueyqueue.huey",
+                "-w",
+                "16",
+                "--verbose",
+                "--scheduler-interval",
+                "10",
+                // "-l",
+                // "huey_raw_log.log",
+                // "2>&1"
+            ],
+            "justMyCode": false,
+            "consoleTitle": "HueyQueue"
+        },
+        {
+            "name": "huey2",
+            "type": "python",
+            "request": "launch",
+            "module": "huey_consumer",
+            "env": {
+                "PYTHONPATH": "/home/widya/.pyenv/versions/3.9.13/envs/huey/lib/python3.9/site-packages/huey/bin",
+            },
+            "args": [
+                "hueyqueue.another_huey",
+                "-w",
+                "2",
+                "--verbose"
+            ],
+            "justMyCode": false,
+            "consoleTitle": "HueyAnotherQueue"
+        }
+    ]
+}
